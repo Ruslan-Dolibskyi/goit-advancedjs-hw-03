@@ -1,6 +1,5 @@
 .container {
-  max-width: 600px;
-  margin: 0 auto;
+  max-width: 800px;
   padding: 20px;
   font-family: Arial, sans-serif;
   display: flex;
@@ -48,18 +47,16 @@
 }
 
 .cat-info img {
-  margin: 0 auto;
-  max-width: 400px;
-  width: 100%;
-  height: auto;
-  flex-shrink: 0;
+  max-width: 300px;
+  margin-right: 20px;
 }
 
 .cat-info {
+  display: flex;
+  min-height: 200px;
+  flex-direction: row;
   margin-top: 20px;
-  text-align: left;
-  display: none;
-  flex-direction: column;
+  padding: 10px;
 }
 
 .slim-select {

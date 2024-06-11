@@ -38,11 +38,16 @@ document.addEventListener('DOMContentLoaded', async () => {
       catInfo.style.display = 'none';
       const cat = await fetchCatByBreed(breedId);
       catInfo.innerHTML = `
-        <img src="${cat.url}" alt="${cat.breeds[0].name}">
-        <h2>${cat.breeds[0].name}</h2>
-        <p>${cat.breeds[0].description}</p>
-        <p><strong>Temperament:</strong> ${cat.breeds[0].temperament}</p>
-      `;
+        <div class="cat-image">
+          <img src="${cat.url}" alt="${cat.breeds[0].name}">
+        </div>
+        <div class="cat-details">
+          <h2>${cat.breeds[0].name}</h2>
+          <p>${cat.breeds[0].description}</p>
+          <p><strong>Temperament:</strong> ${cat.breeds[0].temperament}</p>
+        </div>
+`;
+
       catInfo.style.display = 'flex';
     } catch (error) {
       showError(error.message);
