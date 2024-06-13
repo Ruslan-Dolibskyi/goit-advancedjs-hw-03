@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         .map(breed => `<option value="${breed.id}">${breed.name}</option>`)
         .join('');
       new SlimSelect({ select: '#breed-select' });
+      breedSelect.style.display = 'block';
     } catch (error) {
       showError(error.message);
     } finally {
@@ -37,6 +38,10 @@ document.addEventListener('DOMContentLoaded', async () => {
       hideError();
       catInfo.style.display = 'none';
       const cat = await fetchCatByBreed(breedId);
+      if (!cat || cat.length === 0) {
+        showError('There is no information about this cat');
+        return;
+      }
       catInfo.innerHTML = `
         <div class="cat-image">
           <img src="${cat.url}" alt="${cat.breeds[0].name}">
